@@ -1,0 +1,105 @@
+.nav-bar{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    
+    background-color: #2C2C2C;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25), 0px -1px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.container{
+    width: 80%;
+}
+
+.nav-bar .container{
+    font-size: 14px;
+    color: #999;
+    height: 40px;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#topnav-left{
+    float: left;
+}
+
+#topnav-right{
+    float: right;
+}
+
+#topnav a{
+    padding: 12px 20px 12px 20px !important;
+    color: #FFF;
+    display: inline-block;
+    
+    /*vertical-align: middle;*/
+    text-decoration: none;
+}
+
+#topnav a:hover{
+    color: #FFF;
+    background-color: #000;
+}
+
+.active{
+    color: #FFF;
+    background-color: #000;   
+}
+
+@font-face{
+    font-family: 'Banner';
+    src: url('AldotheApache.ttf');
+}
+
+@font-face{
+    font-family: 'Title';
+    src: url('BebasNeue.otf');
+}
+
+.main .banner{
+    padding: 100px 80px 100px 80px;
+    text-align: center;
+}
+
+#welcome{
+    padding: 200px 0px 0px 0px;
+    margin: 0px;
+    font-family: Banner;
+    font-size: 120px;
+    /*text-align: center;*/
+}
+
+#sub-welcome{
+    font-size: 25px;
+    color: #888;
+}
+
+.text-blue{
+    color: blue;
+}
+
+.text-red{
+    color: red;
+}
+
+.main .content{
+    padding: 100px 0px 0px 0px;
+}
+
+.title{
+    font-family: Title;
+}
+
+
+hr{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>지도</title>
+  </head>
+  <body>
+    <h3>지도 보기</h3>
+    <div id="map" style="width:500px;height:400px;"></div>
+    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=0e1bd4128d93263601381f437021061a"></script>
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+	            center: new daum.maps.LatLng(37.504259, 127.105849), //지도의 중심좌표
+	            level: 3 //지도의 레벨(확대, 축소 정도)
+        };
+
+        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+    </script>    
+    <p>신라문화장학재단</p>
+    <br>
+    <a href="http://map.daum.net/link/roadview/37.504259,127.105849">로드뷰 확인하기</a>
+  </body>
+</html>
+{% endblock %}

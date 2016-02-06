@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block contents %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>채팅</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="panel panel-default">
+                <div id="messages" class="panel-body">
+                </div>
+                <div class-"panel-footer">
+                    <div class="col-sm-10">
+                        <input type="text" name="message" class="form-control" id="message">
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <button type="button" id="send" class="btn btn-info" class="form-control">메시지</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(window).ready(function() {
+                $('#send').click(function() {
+                    var message_text = $('#message').val();
+                    $.post("/message", {message:message_text});
+                })
+            });
+        </script>
+        <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+        <script>
+            // Enable pusher logging - don't include this in production
+            Pusher.log = function(message) {
+              if (window.console && window.console.log) {
+                window.console.log(message);
+              }
+            };
+        
+            var pusher = new Pusher('fef0e0c6ceda0fa483aa', {
+              encrypted: true
+            });
+            var channel = pusher.subscribe('chat');
+            channel.bind('new_message', function(data) {
+                //var $message = $('#messages');
+                //var $row = $('div');
+                //$row.addClass('row').text(data..message);
+                $('#messages').append('<div class="row">'+data.message+'</div>');
+            });
+        </script>
+    </body>
+</html>    
+{% endblock %}

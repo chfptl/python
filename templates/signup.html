@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block contents %}
+<h1>회원가입</h1>
+<form action='/signup' method="post">
+    이름: <input type="text" name="username">
+    암호: <input type="password" name="password">
+    나이: <input type="text" name="age">
+    <button type="submit">입력</button>
+</form>
+{% endblock %}
